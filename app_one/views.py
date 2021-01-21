@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse, redirect
+from django.shortcuts import HttpResponse, redirect, render
 from django.http import JsonResponse
 
 
@@ -34,4 +34,13 @@ def destroy(request, number):
 
 
 def json(request):
-    return JsonResponse({"title": "My First Blog", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com" })
+    return JsonResponse({"title": "My First Blog", "content": "Lorem" })
+
+
+def index2(request):
+    context = {
+        "name": "Noelle",
+        "favorite_color": "turquoise",
+        "pets": ["Bruce", "Fitz", "Georgie"]
+    }
+    return render(request, "index.html", context)
